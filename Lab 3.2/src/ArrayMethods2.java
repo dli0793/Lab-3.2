@@ -5,16 +5,15 @@ public class ArrayMethods2 {
 	{
 		String[] list1 = {"apple", "dandelion", "yoyo", "zebra"};
 		String[] list2 = {"bubble", "pop", "quilt"};
-		merge(list1, list2);
-		
+		merge(list1,list2);
+		System.out.println(java.util.Arrays.toString(merge(list1,list2)));
 	}
 	
 	
 	public static String[] merge(String[] list1, String[] list2)
 	{
-		String[] x = {};
-		String[] y = {};
-		String[] z = {};
+		String[] x;
+		String[] z;
 		
 		if(list1.length<list2.length)
 		{
@@ -27,18 +26,22 @@ public class ArrayMethods2 {
 			z = list1;
 		}
 		
+		String[] y = new String[z.length+x.length];
+		int r = 0;
 		for(int i = 0;i<x.length;i++)
 		{
 			if(list1[i].compareTo(list2[i])<0)
 			{
-				y[i] = list1[i];
-				y[i+1] = list2[i];
+				y[r] = list1[i];
+				y[r+1] = list2[i];
+				r+=2;
 			}
 			
 			else
 			{
-				y[i] = list2[i];
-				y[i+1] = list1[i];
+				y[r] = list2[i];
+				y[r+1] = list1[i];
+				r+=2;
 			}
 		}
 		

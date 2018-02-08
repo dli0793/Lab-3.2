@@ -45,9 +45,9 @@ public class ArrayMethods2 {
 			}
 		}
 		
-		for(int i = x.length;i<z.length;i++)
+		for(int i = 0;i<z.length;i++)
 		{
-			y[i] = z[i];
+			y[r] = z[i];
 		}
 		
 		return y;
@@ -56,7 +56,8 @@ public class ArrayMethods2 {
 	
 	public static int partition(int[] list)
 	{
-		
+		int pivot = 0;
+		int left = 0;
 	}
 
 }

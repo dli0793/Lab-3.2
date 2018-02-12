@@ -1,3 +1,5 @@
+//Author: Daniel Li
+//Title: Lab 3.2
 
 public class ArrayMethods2 {
 

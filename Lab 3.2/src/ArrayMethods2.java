@@ -31,62 +31,39 @@ public class ArrayMethods2 {
 	
 	public static String[] merge(String[] list1, String[] list2)
 	{
-		String[] x;
-		String[] z;
+		int list1Index = 0;
+		int list2Index = 0;
+		int sortedIndex = 0;
+		String[] y = new String[list1.length+list2.length];
 		
-		if(list1.length<list2.length)
-		{
-			x = list1;
-			z = list2;
-		}
-		else
-		{
-			x = list2;
-			z = list1;
-		}
-		
-		String[] y = new String[z.length+x.length];
-		int r = 0;
-		for(int i = 0;i<x.length;i++)
-		{
-			if(list1[i].compareTo(list2[i])<0)
-			{
-				y[r] = list1[i];
-				y[r+1] = list2[i];
-				r+=2;
-			}
-			
-			else
-			{
-				y[r] = list2[i];
-				y[r+1] = list1[i];
-				r+=2;
-			}
-		}
-		
-		for(int i = 0;i<z.length;i++)
-		{
-			y[r] = z[i];
-		}
-		
-		String tempStr;
-		int counter = 1;
-		while(counter>0)
-		{
-			counter = 0;
-			for(int i=0;i<y.length-1;i++)
-			{	
-				if(y[i].compareTo(y[i+1])>0)
-				{
-					tempStr = y[i];
-					y[i] = y[i+1];
-					y[i+1] = tempStr;
-					counter = 1;
-				}
-			}
-		}
-		
-		return y;
+	    while(list1Index<list1.length&&list2Index<list2.length)
+	    {
+	        if(list1[list1Index].compareTo(list2[list2Index])<0)
+	        {
+	            y[sortedIndex] = list1[list1Index];
+	            list1Index++;
+	        }
+	        else
+	        {
+	            y[sortedIndex] = list2[list2Index];
+	            list2Index++;
+	        }
+	        sortedIndex++;
+	    }
+	    while(list1Index<list1.length)
+	    {
+	        y[sortedIndex] = list1[list1Index];
+	        list1Index++;
+	        sortedIndex++;
+	    }
+	    while(list2Index<list2.length)
+	    {
+	        y[sortedIndex] = list2[list2Index];
+	        list2Index++;
+	        sortedIndex++;
+	    }
+
+	    return y;
 	}
 	
 	
